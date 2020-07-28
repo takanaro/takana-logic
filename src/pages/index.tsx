@@ -1,9 +1,13 @@
-import React from "react"
+import React, { Props } from "react"
 import { PageProps, Link } from "gatsby"
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 
-export default function IndexRoute(props: PageProps) {
+interface IFooProps extends React.ClassAttributes<BlogIndex> {
+    bar: string;
+}
 
+// export default function IndexRoute(props: PageProps) {
+const BlogIndex: React.FC<Props> = ({ location, data }) => {
   const slug = 'aaa'
   return (
     <Layout location = {location}>
@@ -15,3 +19,5 @@ export default function IndexRoute(props: PageProps) {
     </Layout>
   )
 }
+
+export default BlogIndex

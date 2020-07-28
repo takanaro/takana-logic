@@ -15,12 +15,14 @@
   },
   "dependencies": {
     "dotenv": "^8.2.0",
-    "gatsby": "^2.24.7",
-    "gatsby-source-contentful": "^2.3.28",
+    "gatsby": "^2.24.12",
+    "gatsby-plugin-graphql-codegen": "^2.7.1",
+    "gatsby-source-contentful": "^2.3.33",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
+    "@types/react": "^16.9.43",
     "prettier": "2.0.5"
   },
   "repository": {

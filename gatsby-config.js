@@ -21,5 +21,11 @@ module.exports = {
         downloadLocal: true,
       },
     },
+    {
+      resolve: 'gatsby-plugin-graphql-codegen',
+      options: {
+        fileName: `types/graphql-types.d.ts`,
+      },
+    },
   ],
 }

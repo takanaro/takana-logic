@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { Props } from 'react'
 
-const Layout = ({ location, children }) => {
+const Layout: React.FC<Props> = ({ location, children }) => {
   const Header = () => {
     return (
       <table>
