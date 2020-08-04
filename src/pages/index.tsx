@@ -1,6 +1,7 @@
 import React, { Props } from "react"
 import { PageProps, Link, graphql } from "gatsby"
 import Layout from "../components/Layout"
+import { Article } from "../components/Article"
 import styled from "styled-components"
 
 interface IFooProps extends React.ClassAttributes<BlogIndex> {
@@ -74,15 +75,19 @@ const BlogIndex: React.FC<Props> = ({ location, data }) => {
       />
 
       {data.allContentfulEntryPost.edges.map(({ node }, index) => (
-        <Post>
-        <tr key={index}>
-          <td>{index}</td>
-          <td>{node.contentfulid}</td>
-          <td>{node.title}</td>
-          <td>{node.body.body}</td>
-        </tr>
-        <button>続きを見る</button>
-        </Post>
+        <Article
+          title={node.title}
+          date={node.publishDate}
+        />
+        // <Post>
+        //   <tr key={index}>
+        //     <td>{index}</td>
+        //     <td>{node.contentfulid}</td>
+        //     <td>{node.title}</td>
+        //     <td>{node.body.body}</td>
+        //   </tr>
+        //   <button>続きを見る</button>
+        // </Post>
       ))}
 
     </Layout>
