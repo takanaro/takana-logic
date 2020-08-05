@@ -1,6 +1,7 @@
 import React from 'react'
-import styled from 'styled-components';
 import { Link } from 'gatsby'
+import Img from 'gatsby-image'
+import styled from 'styled-components';
 
 const Post = styled.article`
   display: flex;
@@ -12,15 +13,28 @@ const Post = styled.article`
 interface Props {
   title: string
   date: string
+  content: any
+  thumbnail?: any
 }
+
+const Title = styled.div`
+  font-size: 30px;
+`
 
 const Article: React.FC<Props> = ({
   title,
-  date
+  date,
+  content,
+  thumbnail
 }) => {
+
+  const Thumbnail = thumbnail == null ? null : <Img alt="" fluid={thumbnail.fluid}/>
+
   return (
     <Post>
-      {title}
+      {Thumbnail}
+      <Title>{title}</Title>
+      <p>{content}</p>
       <p>公開日：{date}</p>
     </Post>
   )

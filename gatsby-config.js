@@ -10,8 +10,16 @@ require('dotenv').config({
 });
 
 module.exports = {
-  /* Your site config here */
+  siteMetadata: {
+    title: `たかなろじっく`
+  },
   plugins: [
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utils/typography`,
+      },
+    },
     {
       resolve: `gatsby-source-contentful`,
       options: {
@@ -21,6 +29,7 @@ module.exports = {
         downloadLocal: true,
       },
     },
+    `gatsby-transformer-remark`,
     {
       resolve: 'gatsby-plugin-graphql-codegen',
       options: {

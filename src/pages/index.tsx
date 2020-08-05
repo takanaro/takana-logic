@@ -61,6 +61,11 @@ const User = props => (
 // export default function IndexRoute(props: PageProps) {
 const BlogIndex: React.FC<Props> = ({ location, data }) => {
   const slug = 'aaa'
+
+  data.allContentfulEntryPost.edges.map(({node},index) => (
+    console.log(node)
+  ))
+
   return (
     <Layout location={location}>
       <div>Hello World!</div>
@@ -69,7 +74,8 @@ const BlogIndex: React.FC<Props> = ({ location, data }) => {
       </Link>
 
       <User
-        username="Jane Doe"
+        // username={node.thumbnail.fluid}
+        username="Takanaro"
         avatar="https://s3.amazonaws.com/uifaces/faces/twitter/adellecharles/128.jpg"
         excerpt="I'm Jane Doe. Lorem ipsum dolor sit amet, consectetur adipisicing elit."
       />
@@ -78,6 +84,8 @@ const BlogIndex: React.FC<Props> = ({ location, data }) => {
         <Article
           title={node.title}
           date={node.publishDate}
+          content={node.content.childMarkdownRemark.excerpt}
+          thumbnail={node.thumbnail}
         />
         // <Post>
         //   <tr key={index}>
@@ -110,6 +118,17 @@ export const pageQuery = graphql`
           publishDate
           contentfulid
           title
+          content {
+            childMarkdownRemark {
+              excerpt(format: PLAIN)
+              timeToRead
+            }
+          }
+          thumbnail {
+            fluid {
+              ...GatsbyContentfulFluid
+            }
+          }
         }
       }
     }

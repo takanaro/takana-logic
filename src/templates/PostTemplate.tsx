@@ -2,11 +2,16 @@ import React from "react"
 import { PageProps } from "gatsby"
 import Layout from "../components/Layout"
 
+interface Props {
+  pageContext: any,
+  location: any,
+  data: any
+}
 
-const BlogPostTemplate = ({
-  any: pageContext,
-  any: location,
-  any: data
+const PostTemplate: React.FC<Props> = ({
+  pageContext,
+  location,
+  data
 }) => {
   return (
     <Layout location={location}>
@@ -15,4 +20,4 @@ const BlogPostTemplate = ({
   )
 }
 
-export default BlogPostTemplate
+export default PostTemplate
