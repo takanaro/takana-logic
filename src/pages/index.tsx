@@ -124,11 +124,6 @@ export const pageQuery = graphql`
               timeToRead
             }
           }
-          thumbnail {
-            fluid {
-              ...GatsbyContentfulFluid
-            }
-          }
         }
       }
     }
