@@ -36,6 +36,7 @@ module.exports = {
         fileName: `types/graphql-types.d.ts`,
       },
     },
-    `gatsby-plugin-styled-components`
+    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-lodash`,
   ],
 }
