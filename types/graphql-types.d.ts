@@ -6340,7 +6340,7 @@ export type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type IndexPageQuery = { allContentfulEntryPost: { edges: Array<{ node: (
         Pick<ContentfulEntryPost, 'id' | 'publishDate' | 'contentfulid' | 'title'>
-        & { body?: Maybe<Pick<ContentfulEntryPostBodyTextNode, 'id' | 'body'>>, content?: Maybe<{ childMarkdownRemark?: Maybe<Pick<MarkdownRemark, 'excerpt' | 'timeToRead'>> }>, thumbnail?: Maybe<{ fluid?: Maybe<GatsbyContentfulFluidFragment> }> }
+        & { body?: Maybe<Pick<ContentfulEntryPostBodyTextNode, 'id' | 'body'>>, content?: Maybe<{ childMarkdownRemark?: Maybe<Pick<MarkdownRemark, 'excerpt' | 'timeToRead'>> }> }
       ) }> } };
 
 export type PostQueryVariables = Exact<{ [key: string]: never; }>;

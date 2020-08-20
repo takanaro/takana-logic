@@ -28,14 +28,16 @@ const Article: React.FC<Props> = ({
   thumbnail
 }) => {
 
-  const Thumbnail = thumbnail == null ? null : <Img alt="" fluid={thumbnail.fluid}/>
+  const Thumbnail = thumbnail == null ? null : <Img alt="" fluid={thumbnail.fluid} />
 
   return (
     <Post>
-      {Thumbnail}
-      <Title>{title}</Title>
-      <p>{content}</p>
-      <p>公開日：{date}</p>
+      <a>
+        {Thumbnail}
+        <Title>{title}</Title>
+        <p>{content}</p>
+        <p>公開日：{date}</p>
+      </a>
     </Post>
   )
 }
