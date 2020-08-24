@@ -5154,6 +5154,7 @@ export type QuerySitePageArgs = {
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
+  context?: Maybe<SitePageContextFilterInput>;
   pluginCreator?: Maybe<SitePluginFilterInput>;
   pluginCreatorId?: Maybe<StringQueryOperatorInput>;
   componentPath?: Maybe<StringQueryOperatorInput>;
@@ -5808,6 +5809,7 @@ export type SitePage = Node & {
   children: Array<Node>;
   internal: Internal;
   isCreatedByStatefulCreatePages?: Maybe<Scalars['Boolean']>;
+  context?: Maybe<SitePageContext>;
   pluginCreator?: Maybe<SitePlugin>;
   pluginCreatorId?: Maybe<Scalars['String']>;
   componentPath?: Maybe<Scalars['String']>;
@@ -5832,6 +5834,14 @@ export type SitePageConnectionGroupArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
   field: SitePageFieldsEnum;
+};
+
+export type SitePageContext = {
+  slug?: Maybe<Scalars['Int']>;
+};
+
+export type SitePageContextFilterInput = {
+  slug?: Maybe<IntQueryOperatorInput>;
 };
 
 export type SitePageEdge = {
@@ -5933,6 +5943,7 @@ export type SitePageFieldsEnum =
   | 'internal___owner'
   | 'internal___type'
   | 'isCreatedByStatefulCreatePages'
+  | 'context___slug'
   | 'pluginCreator___id'
   | 'pluginCreator___parent___id'
   | 'pluginCreator___parent___parent___id'
@@ -6014,6 +6025,7 @@ export type SitePageFilterInput = {
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
+  context?: Maybe<SitePageContextFilterInput>;
   pluginCreator?: Maybe<SitePluginFilterInput>;
   pluginCreatorId?: Maybe<StringQueryOperatorInput>;
   componentPath?: Maybe<StringQueryOperatorInput>;
@@ -6343,7 +6355,9 @@ export type IndexPageQuery = { allContentfulEntryPost: { edges: Array<{ node: (
         & { body?: Maybe<Pick<ContentfulEntryPostBodyTextNode, 'id' | 'body'>>, content?: Maybe<{ childMarkdownRemark?: Maybe<Pick<MarkdownRemark, 'excerpt' | 'timeToRead'>> }> }
       ) }> } };
 
-export type PostQueryVariables = Exact<{ [key: string]: never; }>;
+export type PostQueryVariables = Exact<{
+  slug?: Maybe<Scalars['Int']>;
+}>;
 
 
 export type PostQuery = { contentfulEntryPost?: Maybe<(

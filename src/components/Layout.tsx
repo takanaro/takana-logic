@@ -24,8 +24,12 @@ const SubTitleWrapper = styled.div`
 const Header = styled.div`
   height: 200px;
   background: #fff;
-  background-image: linear-gradient(90deg, rgba(77,182,172, .6) 50%, transparent 50%),
-  linear-gradient(#80CBC4 50%, transparent 50%);
+  background-image: linear-gradient(
+      90deg,
+      rgba(77, 182, 172, 0.6) 50%,
+      transparent 50%
+    ),
+    linear-gradient(#80cbc4 50%, transparent 50%);
   background-size: 30px 30px;
 `
 
@@ -35,7 +39,9 @@ const Layout: React.FC<Props> = ({ location, children }) => {
       <Header>
         <SiteTitle>たかなろじっく</SiteTitle>
         <SubTitleWrapper>
-        <SubTitle>私生活で気になったこと、気になったものについて幅広く記事にします！</SubTitle>
+          <SubTitle>
+            私生活で気になったこと、気になったものについて幅広く記事にします！
+          </SubTitle>
         </SubTitleWrapper>
       </Header>
       {children}
@@ -44,4 +50,4 @@ const Layout: React.FC<Props> = ({ location, children }) => {
   )
 }
 
-export default Layout;
+export default Layout

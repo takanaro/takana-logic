@@ -1,13 +1,12 @@
-import React, { Props } from "react"
-import { PageProps, Link, graphql } from "gatsby"
-import Layout from "../components/Layout"
-import { Article } from "../components/Article"
-import styled from "styled-components"
+import React, { Props } from 'react'
+import { PageProps, Link, graphql } from 'gatsby'
+import Layout from '../components/Layout'
+import { Article } from '../components/Article'
+import styled from 'styled-components'
 
 interface IFooProps extends React.ClassAttributes<BlogIndex> {
-  bar: string;
+  bar: string
 }
-
 
 const Container = styled.div`
   margin: 3rem auto;
@@ -58,28 +57,11 @@ const User = props => (
   </UserWrapper>
 )
 
-// export default function IndexRoute(props: PageProps) {
 const BlogIndex: React.FC<Props> = ({ location, data }) => {
-  const slug = 'aaa'
-
-  data.allContentfulEntryPost.edges.map(({node},index) => (
-    console.log(node)
-  ))
+  data.allContentfulEntryPost.edges.map(({ node }, index) => console.log(node))
 
   return (
     <Layout location={location}>
-      <div>Hello World!</div>
-      <Link to={slug}>
-        aaa
-      </Link>
-
-      <User
-        // username={node.thumbnail.fluid}
-        username="Takanaro"
-        avatar="https://s3.amazonaws.com/uifaces/faces/twitter/adellecharles/128.jpg"
-        excerpt="I'm Jane Doe. Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-      />
-
       {data.allContentfulEntryPost.edges.map(({ node }, index) => (
         <Article
           title={node.title}
@@ -87,27 +69,19 @@ const BlogIndex: React.FC<Props> = ({ location, data }) => {
           content={node.content.childMarkdownRemark.excerpt}
           thumbnail={node.thumbnail}
         />
-        // <Post>
-        //   <tr key={index}>
-        //     <td>{index}</td>
-        //     <td>{node.contentfulid}</td>
-        //     <td>{node.title}</td>
-        //     <td>{node.body.body}</td>
-        //   </tr>
-        //   <button>続きを見る</button>
-        // </Post>
       ))}
-
     </Layout>
   )
 }
 
 export default BlogIndex
 
-
 export const pageQuery = graphql`
   query IndexPage {
-    allContentfulEntryPost(filter: {node_locale: {eq: "en-US"}}, sort: {fields: publishDate, order: DESC}) {
+    allContentfulEntryPost(
+      filter: { node_locale: { eq: "en-US" } }
+      sort: { fields: publishDate, order: DESC }
+    ) {
       edges {
         node {
           id
