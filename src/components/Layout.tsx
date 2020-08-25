@@ -2,6 +2,7 @@ import React, { Props } from 'react'
 import Footer from './Footer'
 import styled from 'styled-components'
 import Global from '../styles/global'
+import { Link } from 'gatsby'
 
 const SiteTitle = styled.div`
   font-size: 3em;
@@ -37,7 +38,9 @@ const Layout: React.FC<Props> = ({ location, children }) => {
   return (
     <div>
       <Header>
-        <SiteTitle>たかなろじっく</SiteTitle>
+        <Link to="/">
+          <SiteTitle>たかなろじっく</SiteTitle>
+        </Link>
         <SubTitleWrapper>
           <SubTitle>
             私生活で気になったこと、気になったものについて幅広く記事にします！

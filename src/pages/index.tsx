@@ -64,6 +64,7 @@ const BlogIndex: React.FC<Props> = ({ location, data }) => {
     <Layout location={location}>
       {data.allContentfulEntryPost.edges.map(({ node }, index) => (
         <Article
+          slug={node.contentfulid}
           title={node.title}
           date={node.publishDate}
           content={node.content.childMarkdownRemark.excerpt}

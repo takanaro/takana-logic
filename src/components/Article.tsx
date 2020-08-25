@@ -11,6 +11,7 @@ const Post = styled.article`
 `
 
 interface Props {
+  slug?: Number
   title: string
   date: string
   content: any
@@ -21,15 +22,15 @@ const Title = styled.div`
   font-size: 30px;
 `
 
-const Article: React.FC<Props> = ({ title, date, content, thumbnail }) => {
+const Article: React.FC<Props> = ({ slug, title, date, content, thumbnail }) => {
   const Thumbnail =
     thumbnail == null ? null : <Img alt="" fluid={thumbnail.fluid} />
 
-  const slug = "1"
+   const a = "1"
 
   return (
     <Post>
-      <Link to={slug}>
+      <Link to={String(slug)}>
         <Title>{title}</Title>
       </Link>
         <p>{content}</p>
