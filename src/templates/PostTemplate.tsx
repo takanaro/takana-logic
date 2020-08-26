@@ -7,13 +7,7 @@ const Title = styled.div`
   font-size: 32px;
 `
 
-interface Props {
-  pageContext: any
-  location: any
-  data: any
-}
-
-const PostTemplate: React.FC<Props> = ({ pageContext, location, data }) => {
+const PostTemplate: React.FC<PageProps> = ({ pageContext, location, data }) => {
   console.log(JSON.stringify(data))
   const post = data.contentfulEntryPost
   return (

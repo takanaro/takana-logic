@@ -1,12 +1,8 @@
-import React, { Props } from 'react'
+import React from 'react'
 import { PageProps, Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import { Article } from '../components/Article'
 import styled from 'styled-components'
-
-interface IFooProps extends React.ClassAttributes<BlogIndex> {
-  bar: string
-}
 
 const Container = styled.div`
   margin: 3rem auto;
@@ -57,7 +53,7 @@ const User = props => (
   </UserWrapper>
 )
 
-const BlogIndex: React.FC<Props> = ({ location, data }) => {
+const BlogIndex: React.FC<PageProps> = ({ location, data }) => {
   data.allContentfulEntryPost.edges.map(({ node }, index) => console.log(node))
 
   return (

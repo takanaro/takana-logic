@@ -2,7 +2,7 @@ import React, { Props } from 'react'
 import Footer from './Footer'
 import styled from 'styled-components'
 import Global from '../styles/global'
-import { Link } from 'gatsby'
+import { Link , PageProps} from 'gatsby'
 
 const SiteTitle = styled.div`
   font-size: 3em;
@@ -34,7 +34,7 @@ const Header = styled.div`
   background-size: 30px 30px;
 `
 
-const Layout: React.FC<Props> = ({ location, children }) => {
+const Layout: React.FC<PageProps> = ({ location, children }) => {
   return (
     <div>
       <Header>

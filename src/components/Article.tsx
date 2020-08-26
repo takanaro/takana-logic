@@ -26,8 +26,6 @@ const Article: React.FC<Props> = ({ slug, title, date, content, thumbnail }) => 
   const Thumbnail =
     thumbnail == null ? null : <Img alt="" fluid={thumbnail.fluid} />
 
-   const a = "1"
-
   return (
     <Post>
       <Link to={String(slug)}>
