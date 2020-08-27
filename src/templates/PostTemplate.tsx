@@ -1,23 +1,24 @@
 import React from 'react'
-import { PageProps, graphql } from 'gatsby'
+import { PageProps, graphql , GatsbyLinkProps} from 'gatsby'
 import Layout from '../components/Layout'
 import styled from 'styled-components'
+import { PostQuery } from '../../types/graphql-types'
+import { Content } from '../components/Content'
 
 const Title = styled.div`
   font-size: 32px;
 `
 
-const PostTemplate: React.FC<PageProps> = ({ pageContext, location, data }) => {
+interface IPostProps extends PageProps {
+  data: PostQuery
+}
+
+
+const PostTemplate: React.FC<IPostProps> = ({ pageContext, location, data }) => {
   console.log(JSON.stringify(data))
-  const post = data.contentfulEntryPost
   return (
     <Layout location={location}>
-      <Title>{post.title}</Title>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: post.content.childMarkdownRemark.html,
-        }}
-      />
+      <Content content={data?.contentfulEntryPost}/>
     </Layout>
   )
 }

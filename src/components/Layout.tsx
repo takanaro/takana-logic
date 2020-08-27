@@ -36,7 +36,7 @@ const Header = styled.div`
 
 const Layout: React.FC<PageProps> = ({ location, children }) => {
   return (
-    <div>
+    <>
       <Header>
         <Link to="/">
           <SiteTitle>たかなろじっく</SiteTitle>
@@ -49,7 +49,7 @@ const Layout: React.FC<PageProps> = ({ location, children }) => {
       </Header>
       {children}
       <Footer />
-    </div>
+    </>
   )
 }
 
