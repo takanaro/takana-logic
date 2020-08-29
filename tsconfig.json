@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "ES2018",
+    "module": "CommonJS",
+    "target": "ESNext",
     "typeRoots": [
       "node_modules/@types",
       "src/@types"
@@ -15,7 +15,8 @@
     "noEmit": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    "noUnusedLocals": false
+    "noUnusedLocals": false,
+    "suppressExcessPropertyErrors": false
   },
   "exclude": [
     "node_modules",

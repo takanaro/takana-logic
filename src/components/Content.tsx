@@ -10,24 +10,22 @@ const Post = styled.article`
   margin-bottom: 3.5rem;
 `
 
-interface Props {
-  content?: any
+type Props = {
+  node: any
 }
 
 const Title = styled.div`
   font-size: 30px;
 `
 
-const Content: React.FC<Props> = ({
-  content
-}) => {
+const Content: React.FC<Props> = ({node})=> {
   return (
     <>
-      <Title>{content.title}</Title>
+      <Title>{node.title}</Title>
       <div
         dangerouslySetInnerHTML={{
           __html: String(
-            content.childMarkdownRemark?.html
+            node.content?.childMarkdownRemark?.html
           ),
         }}
       />

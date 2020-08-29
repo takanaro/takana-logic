@@ -1,8 +1,9 @@
-import React, { Props } from 'react'
+import React from 'react'
 import Footer from './Footer'
-import styled from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 import Global from '../styles/global'
-import { Link , PageProps} from 'gatsby'
+import { Link } from 'gatsby'
+import { lightTheme } from '../themes/lightTheme'
 
 const SiteTitle = styled.div`
   font-size: 3em;
@@ -34,23 +35,24 @@ const Header = styled.div`
   background-size: 30px 30px;
 `
 
-const Layout: React.FC<PageProps> = ({ location, children }) => {
+export default ({ children }: { children: any }) => {
   return (
-    <>
-      <Header>
-        <Link to="/">
-          <SiteTitle>たかなろじっく</SiteTitle>
-        </Link>
-        <SubTitleWrapper>
-          <SubTitle>
-            私生活で気になったこと、気になったものについて幅広く記事にします！
-          </SubTitle>
-        </SubTitleWrapper>
-      </Header>
-      {children}
-      <Footer />
-    </>
+    <ThemeProvider theme={lightTheme}>
+      <>
+        {/* <GlobalStyle /> */}
+        <Header>
+          <Link to="/">
+            <SiteTitle>たかなろじっく</SiteTitle>
+          </Link>
+          <SubTitleWrapper>
+            <SubTitle>
+              私生活で気になったこと、気になったものについて幅広く記事にします！
+            </SubTitle>
+          </SubTitleWrapper>
+        </Header>
+        {children}
+        <Footer />
+      </>
+    </ThemeProvider>
   )
 }
-
-export default Layout
