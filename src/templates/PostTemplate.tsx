@@ -9,12 +9,12 @@ const Title = styled.div`
   font-size: 32px;
 `
 
-interface IPostProps extends PageProps {
+interface PostProps extends PageProps {
   data: PostQuery
 }
 
-export default (props: IPostProps) => {
-  const { data, pageContext , location} = props
+export default (props: PostProps) => {
+  const { data, location} = props
   // console.log(JSON.stringify(data.contentfulEntryPost?.content?.childMarkdownRemark?.html))
   return (
     <Layout {...props}>

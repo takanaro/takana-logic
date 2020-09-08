@@ -20,7 +20,7 @@ const Title = styled.div`
   font-size: 30px;
 `
 
-export const Content: React.FC<ContentProps> = ({ node }) => {
+export const Content: React.FC<ContentProps> = ({ node , location}) => {
   return (
     <>
       <Seo isRoot={false} title={node.title} excerpt={node.content?.excerpt} pathname={location.pathname} publishdate={node.publishDate}/>
