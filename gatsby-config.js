@@ -24,9 +24,10 @@ module.exports = {
   pathPrefix: pathPrefix,
   siteMetadata: {
     title: config.siteTitle,
-    siteUrl: `${config.siteUrl}`
+    siteUrl: `${config.siteUrl}`,
   },
   plugins: [
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
