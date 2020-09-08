@@ -7,7 +7,7 @@
 // dotファイルから環境変数を取得
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
-});
+})
 
 // JS上でtsファイルを読み込むために必要
 require('ts-node').register({
@@ -15,15 +15,15 @@ require('ts-node').register({
     module: 'commonjs',
     target: 'esnext',
   },
-});
+})
 
-const config = require('./config/SiteConfig').default;
-const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
+const config = require('./config/SiteConfig').default
+const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
 
 module.exports = {
   pathPrefix: pathPrefix,
   siteMetadata: {
-    title: config.siteTitle
+    title: config.siteTitle,
   },
   plugins: [
     {
@@ -50,5 +50,11 @@ module.exports = {
     },
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-lodash`,
+    {
+      resolve: `gatsby-plugin-google-tagmanager`,
+      options: {
+        id: config.GoogleTagManagerID,
+      },
+    },
   ],
 }
