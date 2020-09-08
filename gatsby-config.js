@@ -9,9 +9,21 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
+// JS上でtsファイルを読み込むために必要
+require('ts-node').register({
+  compilerOptions: {
+    module: 'commonjs',
+    target: 'esnext',
+  },
+});
+
+const config = require('./config/SiteConfig').default;
+const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
+
 module.exports = {
+  pathPrefix: pathPrefix,
   siteMetadata: {
-    title: `たかなろじっく`
+    title: config.siteTitle
   },
   plugins: [
     {

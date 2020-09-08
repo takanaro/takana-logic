@@ -29,20 +29,11 @@ exports.createPages = async ({ graphql, actions }) => {
 
   result.data.allContentfulEntryPost.edges.forEach(element => {
     actions.createPage({
-      path: `/${element.node.contentfulid}`,
+      path: `articles/${element.node.contentfulid}`,
       component: PostTemplate,
       context: {
         slug: element.node.contentfulid
       }
     })
   });
-
-  createPage({
-    path: `/aaa`,
-    component: PostTemplate,
-
-  })
-
-
-
 }

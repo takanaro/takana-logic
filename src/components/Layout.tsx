@@ -4,6 +4,8 @@ import styled, { ThemeProvider } from 'styled-components'
 import Global from '../styles/global'
 import { Link } from 'gatsby'
 import { lightTheme } from '../themes/lightTheme'
+import { Seo } from './Seo'
+import config from '../../config/SiteConfig'
 
 const SiteTitle = styled.div`
   font-size: 3em;
@@ -35,24 +37,41 @@ const Header = styled.div`
   background-size: 30px 30px;
 `
 
-export default ({ children }: { children: any }) => {
+interface LayoutProps {
+  children?: any
+  location?: any
+}
+
+export const Layout = (props: LayoutProps) => {
+  const { children, location } = props
+  const isRoot = location.pathname === '/'
+
+  const header = (
+    <>
+      {isRoot ? <Seo isRoot={isRoot}/> : null}
+      <Header>
+        <Link to="/">
+          <SiteTitle>たかなろじっく</SiteTitle>
+        </Link>
+        <SubTitleWrapper>
+          <SubTitle>
+            私生活で気になったこと、気になったものについて幅広く記事にします！
+          </SubTitle>
+        </SubTitleWrapper>
+      </Header>
+    </>
+  )
+
   return (
     <ThemeProvider theme={lightTheme}>
       <>
+        {header}
         {/* <GlobalStyle /> */}
-        <Header>
-          <Link to="/">
-            <SiteTitle>たかなろじっく</SiteTitle>
-          </Link>
-          <SubTitleWrapper>
-            <SubTitle>
-              私生活で気になったこと、気になったものについて幅広く記事にします！
-            </SubTitle>
-          </SubTitleWrapper>
-        </Header>
         {children}
         <Footer />
       </>
     </ThemeProvider>
   )
 }
+
+export default Layout

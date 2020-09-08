@@ -9,32 +9,33 @@ const Title = styled.div`
   font-size: 32px;
 `
 
-interface IPostProps extends PageProps{
+interface IPostProps extends PageProps {
   data: PostQuery
 }
 
 export default (props: IPostProps) => {
-  const {data, pageContext} = props;
+  const { data, pageContext , location} = props
   // console.log(JSON.stringify(data.contentfulEntryPost?.content?.childMarkdownRemark?.html))
   return (
-    <Layout>
-      <Content node={data.contentfulEntryPost}></Content>
+    <Layout {...props}>
+      <Content node={data.contentfulEntryPost} location={location}></Content>
     </Layout>
   )
 }
 
 export const pageQuery = graphql`
   query Post($slug: Int) {
-    contentfulEntryPost(contentfulid: { eq: $slug }) {
+    contentfulEntryPost(contentfulid: {eq: $slug}) {
       id
       title
       contentfulid
       content {
         childMarkdownRemark {
           html
-          excerpt(pruneLength: 10)
+          excerpt(pruneLength: 120)
         }
       }
+      publishDate(formatString: "YYYY-MM-DD")
     }
   }
 `

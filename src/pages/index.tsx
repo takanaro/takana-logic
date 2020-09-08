@@ -3,6 +3,7 @@ import { PageProps, Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import { Article } from '../components/Article'
 import styled from 'styled-components'
+import { IndexPageQuery } from '../../types/graphql-types'
 
 const Container = styled.div`
   margin: 3rem auto;
@@ -43,7 +44,17 @@ const Post = styled.div`
   color: purple;
 `
 
-const User = props => (
+interface IndexPageProps extends PageProps {
+  data: IndexPageQuery
+}
+
+interface UserProps {
+  avatar: any
+  username: any
+  excerpt: any
+}
+
+const User = (props: UserProps) => (
   <UserWrapper>
     <Avatar src={props.avatar} alt="" />
     <Description>
@@ -53,25 +64,25 @@ const User = props => (
   </UserWrapper>
 )
 
-const BlogIndex: React.FC<PageProps> = ({ location, data }) => {
+export default (props: IndexPageProps) => {
+  const data = props.data
   data.allContentfulEntryPost.edges.map(({ node }, index) => console.log(node))
 
   return (
-    <Layout location={location}>
+    <Layout {...props}>
       {data.allContentfulEntryPost.edges.map(({ node }, index) => (
         <Article
+          key={node.contentfulid}
           slug={node.contentfulid}
           title={node.title}
           date={node.publishDate}
-          content={node.content.childMarkdownRemark.excerpt}
-          thumbnail={node.thumbnail}
+          content={node.content?.childMarkdownRemark?.excerpt}
+          // thumbnail={node.thumbnail}
         />
       ))}
     </Layout>
   )
 }
-
-export default BlogIndex
 
 export const pageQuery = graphql`
   query IndexPage {
@@ -82,10 +93,6 @@ export const pageQuery = graphql`
       edges {
         node {
           id
-          body {
-            id
-            body
-          }
           publishDate
           contentfulid
           title

@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
+import { Seo } from './Seo'
 
 const Post = styled.article`
   display: flex;
@@ -10,27 +11,25 @@ const Post = styled.article`
   margin-bottom: 3.5rem;
 `
 
-type Props = {
+interface ContentProps {
   node: any
+  location?: any
 }
 
 const Title = styled.div`
   font-size: 30px;
 `
 
-const Content: React.FC<Props> = ({node})=> {
+export const Content: React.FC<ContentProps> = ({ node }) => {
   return (
     <>
+      <Seo isRoot={false} title={node.title} excerpt={node.content?.excerpt} pathname={location.pathname} publishdate={node.publishDate}/>
       <Title>{node.title}</Title>
       <div
         dangerouslySetInnerHTML={{
-          __html: String(
-            node.content?.childMarkdownRemark?.html
-          ),
+          __html: String(node.content?.childMarkdownRemark?.html),
         }}
       />
     </>
   )
 }
-
-export { Content }

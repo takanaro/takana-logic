@@ -22,17 +22,31 @@ const Title = styled.div`
   font-size: 30px;
 `
 
-const Article: React.FC<Props> = ({ slug, title, date, content, thumbnail }) => {
-  const Thumbnail =
-    thumbnail == null ? null : <Img alt="" fluid={thumbnail.fluid} />
+interface ArticleProps {
+  slug?: any
+  title: any
+  date: any
+  content?: any
+  thumbnail?: any
+}
+
+const Article: React.FC<ArticleProps> = ({
+  slug,
+  title,
+  date,
+  content,
+  thumbnail,
+}) => {
+  const Thumbnail = thumbnail == null ? null : <Img alt="" fluid={thumbnail.fluid} />
+  const postLink = 'articles/' + slug
 
   return (
     <Post>
-      <Link to={String(slug)}>
+      <Link to={postLink}>
         <Title>{title}</Title>
       </Link>
-        <p>{content}</p>
-        <p>公開日：{date}</p>
+      <p>{content}</p>
+      <p>公開日：{date}</p>
     </Post>
   )
 }
