@@ -28,6 +28,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
@@ -43,6 +44,19 @@ module.exports = {
         downloadLocal: true,
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: config.siteTitle,
+        short_name: config.siteTitleAlt,
+        description: config.siteDescription,
+        start_url: config.pathPrefix,
+        background_color: config.backgroundColor,
+        theme_color: config.themeColor,
+        display: 'standalone',
+        icon: config.favicon,
+      },
+    },
     `gatsby-transformer-remark`,
     {
       resolve: 'gatsby-plugin-graphql-codegen',
@@ -50,7 +64,6 @@ module.exports = {
         fileName: `types/graphql-types.d.ts`,
       },
     },
-    `gatsby-plugin-styled-components`,
     `gatsby-plugin-lodash`,
     {
       resolve: `gatsby-plugin-google-tagmanager`,
