@@ -24,6 +24,7 @@ module.exports = {
   pathPrefix: pathPrefix,
   siteMetadata: {
     title: config.siteTitle,
+    siteUrl: `${config.siteUrl}`
   },
   plugins: [
     {
@@ -56,5 +57,6 @@ module.exports = {
         id: config.GoogleTagManagerID,
       },
     },
+    `gatsby-plugin-sitemap`,
   ],
 }
