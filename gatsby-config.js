@@ -57,6 +57,7 @@ module.exports = {
         icon: config.manifestIcon
       },
     },
+    `gatsby-plugin-offline`, // PWAのオフライン対応するために必要
     `gatsby-transformer-remark`,
     {
       resolve: 'gatsby-plugin-graphql-codegen',
