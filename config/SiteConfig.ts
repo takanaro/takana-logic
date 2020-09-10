@@ -8,7 +8,8 @@ export default {
   siteBanner: '/assets/banner.jpg', // Your image for og:image tag. You can find it in the /static folder
   defaultBg: '/assets/bg.png', // default post background header
   favicon: 'static/favicon.ico', // Your image for favicons. You can find it in the /src folder
-  siteDescription: 'Backend Engineerたかなろの知識をモリモリアウトプットするサイト。技術、節約、投資関係の情報を随時配信します。GatsbyJSをマスターし、より可読性の高いサイトを目指していきます。', // Your site description
+  siteDescription:
+    'Backend Engineerたかなろの知識をモリモリアウトプットするサイト。技術、節約、投資関係の情報を随時配信します。GatsbyJSをマスターし、より可読性の高いサイトを目指していきます。', // Your site description
   author: 'Takanaro', // Author for schemaORGJSONLD
   siteLogo: '/assets/logo.png', // Image for schemaORGJSONLD
 
@@ -33,4 +34,6 @@ export default {
   //
   GoogleTagManagerID: 'GTM-P6WXHMP',
   POST_PER_PAGE: 4,
-};
+
+  manifestIcon: `static/icon.png`
+}
