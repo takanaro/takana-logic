@@ -5531,6 +5531,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___cacheDigest'
   | 'pluginCreator___pluginOptions___fileName'
   | 'pluginCreator___pluginOptions___id'
+  | 'pluginCreator___pluginOptions___crossOrigin'
   | 'pluginCreator___pluginOptions___path'
   | 'pluginCreator___pluginOptions___pathCheck'
   | 'pluginCreator___nodeAPIs'
@@ -5739,6 +5740,7 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___cacheDigest'
   | 'pluginOptions___fileName'
   | 'pluginOptions___id'
+  | 'pluginOptions___crossOrigin'
   | 'pluginOptions___path'
   | 'pluginOptions___pathCheck'
   | 'nodeAPIs'
@@ -5873,6 +5875,7 @@ export type SitePluginPluginOptions = {
   cacheDigest?: Maybe<Scalars['String']>;
   fileName?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['String']>;
+  crossOrigin?: Maybe<Scalars['String']>;
   path?: Maybe<Scalars['String']>;
   pathCheck?: Maybe<Scalars['Boolean']>;
 };
@@ -5898,6 +5901,7 @@ export type SitePluginPluginOptionsFilterInput = {
   cacheDigest?: Maybe<StringQueryOperatorInput>;
   fileName?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
+  crossOrigin?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
 };

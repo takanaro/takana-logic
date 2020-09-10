@@ -77,6 +77,11 @@ module.exports = {
     },
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-robots-txt`,
-    `gatsby-plugin-preload-fonts`,
+    {
+      resolve: `gatsby-plugin-preload-fonts`,
+      options: {
+        crossOrigin: `use-credentials`
+      }
+    }
   ],
 }
