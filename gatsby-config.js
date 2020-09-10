@@ -54,7 +54,10 @@ module.exports = {
         background_color: config.backgroundColor,
         theme_color: config.themeColor,
         display: 'standalone',
-        icon: config.manifestIcon
+        icon: config.manifestIcon,
+        icon_options: {
+          purpose: `maskable`,
+        },
       },
     },
     `gatsby-plugin-offline`, // PWAのオフライン対応するために必要
