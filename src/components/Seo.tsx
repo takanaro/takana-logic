@@ -10,6 +10,7 @@ interface SeoProps {
   excerpt?: string
   pathname?: string
   publishdate?: string
+  image?: string
 }
 
 export const Seo: React.FC<SeoProps> = ({
@@ -18,6 +19,7 @@ export const Seo: React.FC<SeoProps> = ({
   excerpt,
   pathname,
   publishdate,
+  image
 }) => {
   const data = useStaticQuery(graphql`
     query HeaderQuery {
@@ -30,7 +32,6 @@ export const Seo: React.FC<SeoProps> = ({
   `)
 
   let description
-  let image
   let postURL
   const realPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
   if (isRoot) {
@@ -39,10 +40,10 @@ export const Seo: React.FC<SeoProps> = ({
     image = config.siteBanner
   } else {
     description = excerpt
-    image = config.siteBanner
+    // image = config.siteBanner
+    // image = config.siteUrl + realPrefix + image
     postURL = config.siteUrl + realPrefix + pathname
   }
-  image = config.siteUrl + realPrefix + image
   const blogURL = config.siteUrl + config.pathPrefix
   let schemaOrgJSONLD = [
     {

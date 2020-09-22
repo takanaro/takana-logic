@@ -98,7 +98,7 @@ export const pageQuery = graphql`
           title
           content {
             childMarkdownRemark {
-              excerpt(format: PLAIN)
+              excerpt(format: PLAIN, truncate: true, pruneLength: 120)
               timeToRead
             }
           }

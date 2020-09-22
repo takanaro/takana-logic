@@ -9,15 +9,6 @@ const Post = styled.article`
   margin-top: 3.5rem;
   margin-bottom: 3.5rem;
 `
-
-interface Props {
-  slug?: Number
-  title: string
-  date: string
-  content: any
-  thumbnail?: any
-}
-
 const Title = styled.div`
   font-size: 30px;
 `

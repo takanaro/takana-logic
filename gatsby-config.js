@@ -45,7 +45,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: `gatsby-plugin-manifest`, // PWA対応
       options: {
         name: config.siteTitle,
         short_name: config.siteTitleAlt,

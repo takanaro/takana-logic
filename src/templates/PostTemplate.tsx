@@ -15,7 +15,6 @@ interface PostProps extends PageProps {
 
 export default (props: PostProps) => {
   const { data, location} = props
-  // console.log(JSON.stringify(data.contentfulEntryPost?.content?.childMarkdownRemark?.html))
   return (
     <Layout {...props}>
       <Content node={data.contentfulEntryPost} location={location}></Content>
@@ -32,10 +31,15 @@ export const pageQuery = graphql`
       content {
         childMarkdownRemark {
           html
-          excerpt(pruneLength: 120)
+          excerpt(format: PLAIN, truncate: true, pruneLength: 120)
         }
       }
       publishDate(formatString: "YYYY-MM-DD")
+      thumbnail {
+        localFile {
+          absolutePath
+        }
+      }
     }
   }
 `
