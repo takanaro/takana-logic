@@ -25,7 +25,7 @@ const Title = styled.div`
 `
 
 export const Content: React.FC<ContentProps> = ({ node, location }) => {
-  console.log(JSON.stringify(node.thumbnail.localFile.absolutePath))
+  console.log(JSON.stringify(node.thumbnail.file.url))
   return (
     <ContentWrapper>
       <Seo
@@ -34,7 +34,7 @@ export const Content: React.FC<ContentProps> = ({ node, location }) => {
         excerpt={node.content?.childMarkdownRemark?.excerpt}
         pathname={location.pathname}
         publishdate={node.publishDate}
-        image={node.thumbnail.localFile.absolutePath}
+        image={node.thumbnail.file.url}
       />
       <Title>{node.title}</Title>
       <div

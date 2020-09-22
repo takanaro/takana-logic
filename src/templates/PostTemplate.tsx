@@ -36,8 +36,8 @@ export const pageQuery = graphql`
       }
       publishDate(formatString: "YYYY-MM-DD")
       thumbnail {
-        localFile {
-          absolutePath
+        file {
+          url
         }
       }
     }

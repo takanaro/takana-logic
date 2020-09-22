@@ -5496,7 +5496,7 @@ export type PostQueryVariables = Exact<{
 
 export type PostQuery = { contentfulEntryPost?: Maybe<(
     Pick<ContentfulEntryPost, 'id' | 'title' | 'contentfulid' | 'publishDate'>
-    & { content?: Maybe<{ childMarkdownRemark?: Maybe<Pick<MarkdownRemark, 'html' | 'excerpt'>> }>, thumbnail?: Maybe<{ localFile?: Maybe<Pick<File, 'absolutePath'>> }> }
+    & { content?: Maybe<{ childMarkdownRemark?: Maybe<Pick<MarkdownRemark, 'html' | 'excerpt'>> }>, thumbnail?: Maybe<{ file?: Maybe<Pick<ContentfulAssetFile, 'url'>> }> }
   )> };
 
 export type GatsbyContentfulFixedFragment = Pick<ContentfulFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
